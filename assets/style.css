@@ -4,11 +4,17 @@ body {
     color: white;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 nav {
     background: #0f3460;
     padding: 15px;
     text-align: center;
+    display: flex;
+    gap: 100px;
+    width: 100%;
+    position: fixed;
+
 }
 nav a {
     color: #ffcc00;
