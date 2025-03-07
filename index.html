@@ -5,73 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NASA News Hub</title>
     <style>
-        :root {
-            --bg-color: #1a1a2e;
-            --text-color: white;
-            --nav-bg: #0f3460;
-            --highlight: #ffcc00;
-            --button-bg: #ff6b6b;
-        }
-        body.light-mode {
-            --bg-color: white;
-            --text-color: black;
-            --nav-bg: #e0e0e0;
-            --highlight: #ff6b6b;
-            --button-bg: #0f3460;
-        }
         body {
             font-family: Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            background-color: #1a1a2e;
+            color: white;
             margin: 0;
             padding: 0;
-            transition: background 0.3s, color 0.3s;
         }
         nav {
-            background: var(--nav-bg);
+            background: #0f3460;
             padding: 15px;
             text-align: center;
         }
-        nav a, .toggle-mode {
-            color: var(--highlight);
+        nav a {
+            color: #ffcc00;
             text-decoration: none;
             margin: 0 15px;
             font-size: 18px;
-            cursor: pointer;
         }
-        .toggle-mode {
-            background: none;
-            border: none;
-            font-size: 18px;
+        nav a:hover {
+            color: #ff6b6b;
         }
         .section {
             padding: 50px 20px;
             text-align: center;
+        }
+        #landing {
+            background: url('https://www.nasa.gov/sites/default/files/thumbnails/image/potw2110a.jpg') no-repeat center center/cover;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        #landing h1 {
+            font-size: 50px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            border-radius: 5px;
         }
         .news-container {
             max-width: 800px;
             margin: auto;
         }
         .news-item {
-            background: var(--nav-bg);
+            background: #0f3460;
             padding: 15px;
             margin: 15px 0;
             border-radius: 5px;
             text-align: left;
         }
         .news-item h3 {
-            color: var(--highlight);
+            color: #ffcc00;
         }
         .read-more {
-            background: var(--button-bg);
-            padding: 8px 12px;
+            background: #ffcc00;
+            padding: 5px 10px;
             color: white;
             border: none;
             cursor: pointer;
+            margin-top: 10px;
             border-radius: 5px;
         }
         .hidden {
             display: none;
+        }
+        .search-container {
+            margin-bottom: 20px;
         }
         input {
             padding: 10px;
@@ -80,44 +80,34 @@
             border: none;
             border-radius: 5px;
         }
-        /* Sidebar styles */
-        .sidebar {
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 250px;
-            height: 100%;
-            background-color: var(--nav-bg);
-            color: var(--text-color);
-            padding: 20px;
-            transform: translateX(100%);
-            transition: transform 0.3s ease-in-out;
-        }
-        .sidebar.open {
-            transform: translateX(0);
-        }
-        .sidebar h3 {
-            color: var(--highlight);
-        }
-        .history-item {
-            background: var(--bg-color);
+        button {
             padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
+            background: #ff6b6b;
+            color: white;
+            border: none;
             cursor: pointer;
+            border-radius: 5px;
         }
-        .history-item:hover {
-            background: var(--highlight);
+        footer {
+            background: #0f3460;
+            padding: 20px;
+            text-align: center;
         }
     </style>
 </head>
 <body>
 
     <nav>
+        <a href="#landing">Home</a>
         <a href="#news">News</a>
-        <button class="toggle-mode" onclick="toggleMode()">🌞/🌙</button>
-        <button onclick="toggleSidebar()">🗂️ Search History</button>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
     </nav>
+
+    <section id="landing">
+        <h1>🚀 Welcome to NASA News Hub</h1>
+        <p>Explore the latest space discoveries and updates from NASA.</p>
+    </section>
 
     <section id="news" class="section">
         <h2>📰 NASA News</h2>
@@ -126,15 +116,18 @@
             <button onclick="searchNews()">Search</button>
         </div>
         <div class="news-container" id="news-list"></div>
-        <div id="loading" style="text-align:center; display:none;">Loading more news...</div>
     </section>
 
-    <!-- Sidebar -->
-    <div class="sidebar" id="sidebar">
-        <h3>📜 Search History</h3>
-        <div id="history-list"></div>
-        <button onclick="toggleSidebar()">Close Sidebar</button>
-    </div>
+    <section id="about" class="section">
+        <h2>🌎 About This Project</h2>
+        <p>This website fetches live NASA news using their API. Stay updated with the latest space missions, discoveries, and research.</p>
+    </section>
+
+    <section id="contact" class="section">
+        <h2>📩 Contact Me</h2>
+        <p>Email: <a href="mailto:your-email@example.com" style="color:#ffcc00;">your-email@example.com</a></p>
+        <p>GitHub: <a href="https://github.com/your-github" style="color:#ffcc00;" target="_blank">your-github</a></p>
+    </section>
 
     <footer>
         <p>&copy; 2025 NASA News Hub | Created by Leul Ayfokru</p>
@@ -144,64 +137,17 @@
         const apiKey = 'lBh1PCBkF58OZiUlmqwjKleRlDGBnCdYNZ4GZeH2';
         let newsPage = 1;
         let isLoading = false;
-        let currentQuery = '';
-        let searchHistory = JSON.parse(localStorage.getItem("searchHistory")) || [];
+        let currentQuery = 'news';
 
-        function toggleMode() {
-            document.body.classList.toggle("light-mode");
-            localStorage.setItem("theme", document.body.classList.contains("light-mode") ? "light" : "dark");
-        }
-
-        function loadTheme() {
-            const savedTheme = localStorage.getItem("theme");
-            if (savedTheme === "light") {
-                document.body.classList.add("light-mode");
-            }
-        }
-
-        function saveSearch(query) {
-            if (!searchHistory.includes(query)) {
-                searchHistory.unshift(query);
-                if (searchHistory.length > 5) {
-                    searchHistory.pop();
-                }
-                localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
-            }
-            displaySearchHistory();
-        }
-
-        function displaySearchHistory() {
-            const historyList = document.getElementById("history-list");
-            historyList.innerHTML = "";
-            searchHistory.forEach(search => {
-                const historyItem = document.createElement("div");
-                historyItem.classList.add("history-item");
-                historyItem.innerHTML = `<h3>${search}</h3>`;
-                historyItem.addEventListener("click", () => {
-                    searchNews(search);
-                    toggleSidebar();
-                });
-                historyList.appendChild(historyItem);
-            });
-        }
-
-        function toggleSidebar() {
-            const sidebar = document.getElementById("sidebar");
-            sidebar.classList.toggle("open");
-        }
-
-        async function fetchNews(searchTerm = '', reset = false) {
+        async function fetchNews(searchTerm = 'news', reset = false) {
             if (isLoading) return;
             isLoading = true;
-
-            const loadingElement = document.getElementById("loading");
-            loadingElement.style.display = 'block';
 
             const response = await fetch(`https://images-api.nasa.gov/search?q=${searchTerm}&page=${newsPage}`);
             const data = await response.json();
             const newsList = document.getElementById("news-list");
 
-            if (reset) newsList.innerHTML = "";
+            if (reset) newsList.innerHTML = ""; 
 
             data.collection.items.forEach(item => {
                 const title = item.data[0].title;
@@ -240,16 +186,14 @@
 
             newsPage++;
             isLoading = false;
-            loadingElement.style.display = 'none';
         }
 
-        function searchNews(query = '') {
-            const inputQuery = query || document.getElementById("searchQuery").value.trim();
-            if (inputQuery) {
-                currentQuery = inputQuery;
+        function searchNews() {
+            const query = document.getElementById("searchQuery").value.trim();
+            if (query) {
+                currentQuery = query;
                 newsPage = 1;
-                fetchNews(inputQuery, true);
-                saveSearch(inputQuery);
+                fetchNews(query, true);
             }
         }
 
@@ -259,11 +203,7 @@
             }
         });
 
-        document.addEventListener("DOMContentLoaded", () => {
-            loadTheme();
-            displaySearchHistory();
-            fetchNews();
-        });
+        fetchNews();
     </script>
 
 </body>
