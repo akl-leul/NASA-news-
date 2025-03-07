@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!--og properties-->
+<link rel="shortcut icon" href="assets/images/" type="image/x-icon">
+<meta name="description" content="Stay updated with the latest NASA news, space exploration updates, Mars missions, Artemis program, space technology, astronomy news, and more from NASA using our API-driven news hub.">
+<meta name="keywords" content="NASA news updates, NASA news API, NASA space news, NASA latest news, NASA space missions news, NASA news hub, NASA news portal, NASA space exploration news, NASA breaking news, NASA live news, NASA space technology updates, NASA Mars news, NASA Artemis program updates, NASA astronomy news, NASA satellite news, NASA space weather news, NASA launch updates, NASA discovery news, NASA science news, NASA space news API, Space news from NASA, NASA mission updates, NASA space research news, NASA Apollo mission news, NASA telescope news">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="NASA News Hub - Latest News and Updates from NASA">
+<meta property="og:description" content="Explore thousands of English word definitions, synonyms, and more with YourDictionaryName. Improve your language skills effortlessly.">
+<meta property="og:image" content="https://imgs.search.brave.com/EKP_aftRv9DrvE-CcE1fanuAWp5MbVt6GUoNyMk5k5I/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5kZXNpZ25ydXNo/LmNvbS9pbnNwaXJh/dGlvbl9pbWFnZXMv/NjU2MTU4L2NvbnZl/cnNpb25zL25hc2Ff/bG9nb19kZXNpZ240/X2Y0YjU0NzhmNDc1/NV9iYmUxODk3Mzc4/ZjMtZGVza3RvcC5q/cGc"> 
+<meta property="og:image:type" content="image/jpg">
+<meta property="og:image:width" content="800">
+<meta property="og:image:height" content="800">
+
+<meta property="og:url" content="https://dictionary-chi-black.vercel.app/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NASA News Hub">
+
+
+    <title>NASA News Hub</title>
+     <link rel="stylesheet" href="assets/style.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Caveat:wght@400..700&family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Sigmar&family=Silkscreen:wght@400;700&family=Sixtyfour+Convergence&display=swap" rel="stylesheet">
+     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+     <script src="assets/script.js"></script>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <a href="index.html" ><i class="fa-solid fa-satellite"></i> NASA News</a>
+        </ul>
+        <ul class="pc">
+        <a href="index.html">Home</a>
+        <a href="index.html#news">News</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </ul>
+   
+    <ul style="display: flex; align-items: center; gap: 20px;">
+        <button class="mobile" id="menu" onclick="
+             document.getElementById('mobile').style.display = 'flex';
+             document.getElementById('menu').style.display = 'none';
+            " >
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </ul>
+     <ul class="mobile" id="mobile">
+        <button onclick="
+        document.getElementById('mobile').style.display = 'none';
+        
+        document.getElementById('menu').style.display = 'flex';
+        ">
+            <i class="fa-solid fa-arrow-left"></i> Close
+        </button>
+        <a href="index.html">Home</a>
+        <a href="index.html#news">News</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </ul>
+    </nav>
+ <br><br><br><br>
+ 
+   
+ <section id="about" class="section">
+    <h2>🌎 About This Project</h2>
+    <p>This website fetches live NASA news using their API. Stay updated with the latest space missions, discoveries, and research.</p>
+    <h2>
+        Who created it?
+    </h2>
+    <p>This project was created by <span>Leul Ayfokru</span>, a space enthusiast and web developer passionate about sharing the wonders of space exploration with the world. The aim is to provide an easy-to-use platform for accessing the latest NASA news and insights from space missions, research, and more.</p>
+</section>
+
+    <footer>
+        <p>&copy; 2025 NASA News Hub | Created by Leul Ayfokru</p>
+    </footer>
+
+    
+
+</body>
+</html>
