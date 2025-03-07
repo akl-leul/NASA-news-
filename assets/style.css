@@ -1,64 +1,92 @@
+*{
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
 body {
-    font-family: Arial, sans-serif;
-    background-color: #1a1a2e;
+    font-family: "Bebas Neue", sans-serif;
     color: white;
+    background: url('https://img.freepik.com/free-photo/blue-universe-star-explosion_181624-14998.jpg?t=st=1741339997~exp=1741343597~hmac=570eafbf759f19dafcf668b2a39efe1e52cf7190392665d27fde94bc10f5ff68&w=1380') no-repeat fixed center/cover;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    box-sizing: border-box;
 }
 nav {
-    background: #0f3460;
+    background: #0f336031;
+    font-family: "Orbitron", sans-serif;
     padding: 15px;
     text-align: center;
     display: flex;
+    flex-wrap: wrap;
     gap: 100px;
     width: 100%;
     position: fixed;
-
+    font-weight: 700;
+    backdrop-filter: blur(10px);
+    z-index: 1000;
 }
 nav a {
-    color: #ffcc00;
+    color: #919191;
     text-decoration: none;
     margin: 0 15px;
     font-size: 18px;
 }
+
 nav a:hover {
-    color: #ff6b6b;
+    color: #ffffff; }
+.mobile, #menu{
+        display: none;
+        position: relative;
+        flex-direction: column; 
+    }
+#mobile{
+    margin-left: -100px;
+    margin-top: 50px;
 }
 .section {
     padding: 50px 20px;
     text-align: center;
+    background-color: #0f336033;
+    backdrop-filter: blur(10px);
 }
 #landing {
-    background: url('https://www.nasa.gov/sites/default/files/thumbnails/image/potw2110a.jpg') no-repeat center center/cover;
-    height: 90vh;
+     height: 100lvh;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    text-align: center;
+    overflow-x: hidden;
 }
 #landing h1 {
-    font-size: 50px;
-    background: rgba(0, 0, 0, 0.7);
+    font-size: 50px; 
     padding: 10px 20px;
     border-radius: 5px;
 }
 .news-container {
-    max-width: 800px;
+    max-width: 60%;
     margin: auto;
 }
 .news-item {
-    background: #0f3460;
+    background: #ffffff4f;
     padding: 15px;
     margin: 15px 0;
     border-radius: 5px;
     text-align: left;
+    backdrop-filter: blur(10px);
+}
+.news-item p{
+    font-family: "Roboto", sans-serif;
 }
 .news-item h3 {
-    color: #ffcc00;
+    background: -webkit-linear-gradient(58deg, #c5b204 0%, #1bff5f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .read-more {
-    background: #ffcc00;
+    background: #000000;
+background: -webkit-linear-gradient(58deg, #000000 0%, #1bbeff 100%);
+background: linear-gradient(58deg, #000000 0%, #1bbeff 100%);
     padding: 5px 10px;
     color: white;
     border: none;
@@ -81,14 +109,47 @@ input {
 }
 button {
     padding: 10px;
-    background: #ff6b6b;
+    background: #000000;
+background: -webkit-linear-gradient(58deg, #000000 0%, #1bbeff 100%);
+background: linear-gradient(58deg, #000000 0%, #1bbeff 100%);
     color: white;
     border: none;
     cursor: pointer;
     border-radius: 5px;
+    font-family: "Orbitron", sans-serif;
+    font-weight: 500;
 }
 footer {
     background: #0f3460;
     padding: 20px;
     text-align: center;
+}
+ 
+@media (max-width: 768px){
+     
+    #menu{
+        display: flex;
+    }
+    .pc{
+        display: none;
+    }
+    nav {
+        gap: 30%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #landing{
+        width: 90%;
+    }
+    #landing h1{
+        font-size: 30px;
+    }
+    .news-container{
+        width: 90%;
+    }
+    input{
+        width: 50%;
+    }
+     
 }
