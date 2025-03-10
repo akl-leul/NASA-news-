@@ -184,7 +184,10 @@ footer {
     }
      #about, #contact{
         height: 80vh;
-div{
+     }
+}
+ 
+form div{
     display: flex;
     flex-direction: row;
     justify-content: left;
@@ -203,18 +206,18 @@ form{
     border-radius: 24px;
      
 }
- textarea{
+form textarea{
     width: 80%;
     height: 10vh;
     margin-bottom: 10px;
     padding: 10px;
  }
- input{
+form input{
     padding: 10px;
     margin-bottom: 15px;
     width: 80%;
  }
- input, textarea{
+ form input, form textarea{
     outline: none;
     border: 2px solid gold;
     border-radius: 6px;
