@@ -5,7 +5,7 @@
 body {
     font-family: "Bebas Neue", sans-serif;
     color: white;
-    background: url('https://img.freepik.com/free-photo/blue-universe-star-explosion_181624-14998.jpg?t=st=1741339997~exp=1741343597~hmac=570eafbf759f19dafcf668b2a39efe1e52cf7190392665d27fde94bc10f5ff68&w=1380') no-repeat fixed center/cover;
+    background: url('assets/images/bg.jpg') no-repeat fixed center/cover;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
@@ -58,7 +58,7 @@ nav a:hover {
 }
 #landing {
     font-family: "Karantina", system-ui;
-     height: 100lvh;
+     height: 100lvh; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -74,6 +74,7 @@ nav a:hover {
 .news-container {
     max-width: 60%;
     margin: auto;
+    padding: 0;
 }
 .news-item {
     background: #0000004f;
@@ -113,8 +114,9 @@ input {
     padding: 10px;
     width: 80%;
     max-width: 500px;
-    border: none;
+    border: 3px solid linear-gradient(58deg, #000000 0%, #1bbeff 100%);
     border-radius: 5px;
+    outline: none;
 }
 button {
     padding: 10px;
@@ -172,7 +174,10 @@ footer {
         font-size: 30px;
     }
     .news-container{
-        width: 90%;
+        width: 100%;
+    }
+    .news-item{
+        width: 100%;
     }
     input{
         width: 50%;
